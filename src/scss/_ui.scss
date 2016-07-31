@@ -1,0 +1,113 @@
+/* Alineacion del texto justificado - Materialize no lo trae o no lo encuentro */
+.justify-align{
+	text-align: justify;
+}
+
+.text-yellow {
+	color: yellow;
+}
+
+.text-gray {
+	color: gray;
+}
+
+.comentarios {
+	background: $primary-color;
+	color: white;
+	font-size: 16px;
+	min-height: 44px;
+	padding-top: 5px;
+	border-radius: 50%
+}
+
+.favorito {
+	color: $primary-color;
+	margin-top: 0px;
+	background: $primary-color;
+	padding: 10px;
+	right: 0;
+	border-radius: 50%;
+	&.no-fav {
+		color: gray;
+	}
+}
+
+.fecha-articulo {
+	line-height: 12px;
+	font-size: 12px;
+	color: $secondary-color;
+}
+
+.subir{
+    width:40px;
+    height:40px;
+    opacity:0.3;
+    position:fixed;
+    bottom:50px;
+    right:25px;
+    display:none;
+    z-index: 99;
+    text-indent:-9999px;
+    background: url('../img/icon_top.png') no-repeat;
+}
+
+
+
+/* Menu lateral cuando estas en modo movil o tableta vertical */
+.side-nav {
+	width: $side-nav-width;
+	.userView {
+		overflow: hidden;
+		position: relative;
+		padding: 32px 32px 0;
+		margin-bottom: 8px;
+		a {
+			height: auto;
+			padding: 0;
+			&:hover {
+		  		background-color: transparent;
+			}
+		}
+		.background {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: -1;
+		}
+		.circle, .nombre, .correo {
+			display: block;
+		}
+		.circle {
+			height: 64px;
+			width: 64px;
+		}
+		.nombre, .correo {
+			font-weight: 14px;
+			line-height: 24px;
+		}
+		.nombre {
+			margin-top: 16px;
+			font-weight: 500;
+		}
+		.correo {
+			padding-bottom: 16px;
+			font-weight: 400;
+		}
+	}
+}
+
+/* Buscador en el nav tabletas horizontales y desktop */
+
+nav{
+	form{
+		height: 64px;
+	}
+	.input-field {
+		margin: 0;
+		height: 100%;
+	}
+}
+
+/* Buscador en el nav moviles y tabletas verticales */
