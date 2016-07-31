@@ -42,7 +42,7 @@ $('#categoria_videos, #categoria_videos_sidenav').on('click', function(){
 	cargarEntradas.cargar("Videos");
 });
 /* MARCAMOS/DESMARCAMOS COMO FAVORITOS Y LO ALMACENAMOS O QUITAMOS EN LA LOCALSTORAGE */
-$(".listado-entradas").on("click", ".favorito", function(){
+$(".inicio").on("click", ".favorito", function(){
     var self = this;
     var EntradaId = $(this).data("id");   
     var posicion = 0;
