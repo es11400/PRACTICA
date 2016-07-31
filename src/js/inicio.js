@@ -8,7 +8,6 @@ var html  = '<section>';
     html += '    <h5 class="flow-text">¿No tienes nada que contar? Pues valora la de los demás.</h5>';
     html += ' </div>';
     html += '</section>';
-    
     html += '<section class="container listado-entradas"></section>';
     html += '<section>';
     html += ' <div class="container center-align">';

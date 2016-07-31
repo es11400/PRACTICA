@@ -43,12 +43,12 @@ module.exports = {
 		        }
 		        
 		        
-		        var html =  '<article class="entrada"><div class="card hoverable"><div class="card-image waves-effect waves-block waves-light">';
+		        var html =  '<article class="entrada" data-id="' + id + '"><div class="card hoverable"><div class="card-image waves-effect waves-block waves-light">';
 		            html += imagen_video;
 		            html += '</div><div class="card-content">';
 		            html += '<span class="card-title activator grey-text text-darken-4">' + titulo +'<i class="material-icons right">more_vert</i></span>';
-		            html += '<p class="justify-align">' + texto_corto + '</p>';
-		            html += '</div><div class="card-reveal"><span class="card-title grey-text text-darken-4">' + titulo + '<i class="material-icons right">close</i></span></div>';
+		            html += '<p class="justify-align">' + texto_corto + '</p></div>';
+		            //html += '<div class="card-reveal"><span class="card-title grey-text text-darken-4">' + titulo + '<i class="material-icons right">close</i></span></div>';
 		            html += '<div class="card-action"><div class="row"><div class="col s12 m12 l12 left-align"><div class="chip">';
 		            html += '<img src="dist/img/' + imagen_autor + '" alt="Contact Person">' + autor + '</div>';
 		            html += '<p class="fecha-articulo">' + fecha + '</p>';
