@@ -29,14 +29,48 @@ module.exports = {
                 error: errorCallback
             });
     },
+    saveComentario: function(comentario, successCallback, errorCallback) {
+
+        var formData = new FormData();
+        formData.append("entrada", comentario.entrada);
+        formData.append("fecha", comentario.fecha);
+        formData.append("nombre", comentario.nombre);
+        formData.append("apellidos", comentario.apellidos);
+        formData.append("email", comentario.email);
+        formData.append("texto", comentario.texto);
+    
+            $.ajax({
+                url: "/api/comentarios/",
+                method: "post",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: successCallback,
+                error: errorCallback
+            });
+    },
     list: function(categoria,successCallback, errorCallback) {
 
-        var url = "/api/entradas/";
-        if (categoria == "Fotos") {
-            url = "/api/entradas/?_order=categoria";
-        } else if (categoria == "Videos") {
-            url = "/api/entradas/?_order=-categoria";
+        
+        
+        if (categoria === "all") {
+            var url = "/api/entradas/";    
+        } else {
+            url = "/api/entradas/?categoria=" + categoria;
         }
+        
+        console.log("URL" + url);
+        console.log("Categoria : " + categoria);
+        $.ajax({
+            url: url,
+            method: "get",
+            success: successCallback,
+            error: errorCallback
+        });
+    },
+    listComentarios: function(entrada, successCallback,errorCallback){
+        var url = "/api/comentarios/?entrada=" + entrada;
+        
         //console.log("URL" + url);
         //console.log("Categoria : " + categoria);
         $.ajax({

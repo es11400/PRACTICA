@@ -1,16 +1,17 @@
+/* CARGAMOS DATOS DEMO - LO SE DEBERIA HACERLO CON UN DICCIONARIO Y UN FOR */
+
 var $ = require('jquery');
 var apiClient = require('./api-client');
-
+var fechaActual = new Date();
 module.exports = {
 
     cargar: function(){
-		var fechaActual = new Date();
-
+		
 			// Entrada 1 
 		    var entrada = {
 		    	autor 			: 'Carlos Castaño',
 			    imagen_autor	: 'avatar_11400es.png',
-			    fecha 			: fechaActual.getDate() + "/" + fechaActual.getMonth() + "/" + fechaActual.getFullYear() + " " + fechaActual.getHours() + ":" + fechaActual.getMinutes() + ":" + fechaActual.getSeconds(),
+			    fecha 			: fechaActual.getFullYear() + "-" + (fechaActual.getMonth()+1) + "-" + fechaActual.getDate() + " " + fechaActual.getHours() + ":" + fechaActual.getMinutes() + ":" + fechaActual.getSeconds(),
 			    titulo 			: 'Título primera entrada',
 			    texto_corto 	: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis ipsam esse rerum impedit, consectetur dolores maiores cumque eius soluta veritatis numquam tenetur natus harum provident voluptatum debitis? Mollitia perspiciatis, numquam?',
 			    texto_largo 	: '<p class="justify-align flow-text"><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit. Ad, reprehenderit omnis accusantium sunt voluptatem, necessitatibus eaque totam, esse libero dolor minima maxime. Magnam doloribus, est consequatur explicabo accusamus similique, ipsa.</p><p class="justify-align flow-text"><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit. Ad, reprehenderit omnis accusantium sunt voluptatem, necessitatibus eaque totam, esse libero dolor minima maxime. Magnam doloribus, est consequatur explicabo accusamus similique, ipsa.</p><p class="justify-align flow-text"><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit. Ad, reprehenderit omnis accusantium sunt voluptatem, necessitatibus eaque totam, esse libero dolor minima maxime. Magnam doloribus, est consequatur explicabo accusamus similique, ipsa.</p><p class="justify-align flow-text"><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit. Ad, reprehenderit omnis accusantium sunt voluptatem, necessitatibus eaque totam, esse libero dolor minima maxime. Magnam doloribus, est consequatur explicabo accusamus similique, ipsa.</p><p class="justify-align flow-text"><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit. Ad, reprehenderit omnis accusantium sunt voluptatem, necessitatibus eaque totam, esse libero dolor minima maxime. Magnam doloribus, est consequatur explicabo accusamus similique, ipsa.</p><p class="justify-align flow-text"><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit. Ad, reprehenderit omnis accusantium sunt voluptatem, necessitatibus eaque totam, esse libero dolor minima maxime. Magnam doloribus, est consequatur explicabo accusamus similique, ipsa.</p><p class="justify-align flow-text"><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit. Ad, reprehenderit omnis accusantium sunt voluptatem, necessitatibus eaque totam, esse libero dolor minima maxime. Magnam doloribus, est consequatur explicabo accusamus similique, ipsa.</p><p class="justify-align flow-text"><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit. Ad, reprehenderit omnis accusantium sunt voluptatem, necessitatibus eaque totam, esse libero dolor minima maxime. Magnam doloribus, est consequatur explicabo accusamus similique, ipsa.</p><p class="justify-align flow-text"><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit. Ad, reprehenderit omnis accusantium sunt voluptatem, necessitatibus eaque totam, esse libero dolor minima maxime. Magnam doloribus, est consequatur explicabo accusamus similique, ipsa.</p><p class="justify-align flow-text"><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit. Ad, reprehenderit omnis accusantium sunt voluptatem, necessitatibus eaque totam, esse libero dolor minima maxime. Magnam doloribus, est consequatur explicabo accusamus similique, ipsa.</p><p class="justify-align flow-text"><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit. Ad, reprehenderit omnis accusantium sunt voluptatem, necessitatibus eaque totam, esse libero dolor minima maxime. Magnam doloribus, est consequatur explicabo accusamus similique, ipsa.</p><p class="justify-align flow-text"><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit. Ad, reprehenderit omnis accusantium sunt voluptatem, necessitatibus eaque totam, esse libero dolor minima maxime. Magnam doloribus, est consequatur explicabo accusamus similique, ipsa.</p><p class="justify-align flow-text"><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit. Ad, reprehenderit omnis accusantium sunt voluptatem, necessitatibus eaque totam, esse libero dolor minima maxime. Magnam doloribus, est consequatur explicabo accusamus similique, ipsa.</p><p class="justify-align flow-text"><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit. Ad, reprehenderit omnis accusantium sunt voluptatem, necessitatibus eaque totam, esse libero dolor minima maxime. Magnam doloribus, est consequatur explicabo accusamus similique, ipsa.</p><p class="justify-align flow-text"><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit. Ad, reprehenderit omnis accusantium sunt voluptatem, necessitatibus eaque totam, esse libero dolor minima maxime. Magnam doloribus, est consequatur explicabo accusamus similique, ipsa.</p><p class="justify-align flow-text"><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit. Ad, reprehenderit omnis accusantium sunt voluptatem, necessitatibus eaque totam, esse libero dolor minima maxime. Magnam doloribus, est consequatur explicabo accusamus similique, ipsa.</p>',
@@ -202,6 +203,47 @@ module.exports = {
 
 			apiClient.save(entrada, function(response) {
 		        console.log("Insertada");
+		    }, function() {
+		        console.error("ERROR", arguments);
+		    });
+	   },
+	   cargarComentarios: function(){
+	   		var comentario = {
+	   			entrada 	: 1,
+	   			fecha 		: (fechaActual.getDate() - 10) + "/" + fechaActual.getMonth() + "/" + fechaActual.getFullYear() + " " + fechaActual.getHours() + ":" + fechaActual.getMinutes() + ":" + fechaActual.getSeconds(),
+	   			nombre 		: 'Pepe',
+	   			apellidos 	: 'Gutierrez',
+	   			email		: 'pepe@gutierrez.com',
+	   			texto 		:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ex exercitationem quibusdam magni repellat voluptatibus nihil. Molestias libero dolore eum expedita! Doloribus voluptates necessitatibus placeat nihil corporis, quia a officiis.'
+	   		}
+	   		apiClient.saveComentario(comentario, function(response) {
+		        console.log("Comentario Insertado");
+		    }, function() {
+		        console.error("ERROR", arguments);
+		    });
+		    var comentario = {
+	   			entrada 	: 1,
+	   			fecha 		: (fechaActual.getDate() - 10) + "/" + fechaActual.getMonth() + "/" + fechaActual.getFullYear() + " " + fechaActual.getHours() + ":" + fechaActual.getMinutes() + ":" + fechaActual.getSeconds(),
+	   			nombre 		: 'Ernesto',
+	   			apellidos 	: 'Mate',
+	   			email		: 'ernesto@mate.com',
+	   			texto 		:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ex exercitationem quibusdam magni repellat voluptatibus nihil. Molestias libero dolore eum expedita! Doloribus voluptates necessitatibus placeat nihil corporis, quia a officiis.'
+	   		}
+	   		apiClient.saveComentario(comentario, function(response) {
+		        console.log("Comentario Insertado");
+		    }, function() {
+		        console.error("ERROR", arguments);
+		    });
+		    var comentario = {
+	   			entrada 	: 1,
+	   			fecha 		: (fechaActual.getDate() - 10) + "/" + fechaActual.getMonth() + "/" + fechaActual.getFullYear() + " " + fechaActual.getHours() + ":" + fechaActual.getMinutes() + ":" + fechaActual.getSeconds(),
+	   			nombre 		: 'Paco',
+	   			apellidos 	: 'Me',
+	   			email		: 'paco@me.com',
+	   			texto 		:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ex exercitationem quibusdam magni repellat voluptatibus nihil. Molestias libero dolore eum expedita! Doloribus voluptates necessitatibus placeat nihil corporis, quia a officiis.'
+	   		}
+	   		apiClient.saveComentario(comentario, function(response) {
+		        console.log("Comentario Insertado");
 		    }, function() {
 		        console.error("ERROR", arguments);
 		    });

@@ -20,6 +20,10 @@
 	border-radius: 50%
 }
 
+.pag-entrada, .ver-comentarios {
+	display: none;
+}
+
 .favorito {
 	color: $primary-color;
 	margin-top: 0px;

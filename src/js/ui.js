@@ -1,5 +1,7 @@
 var cargarEntradas = require('./cargarEntradas');
 var cargarEntrada = require('./cargarEntrada');
+var cargarComentarios = require('./cargarComentarios');
+var materialize = require('./materialize/bin/materialize');
 if (typeof(Storage) !== "undefined") {
 	if(localStorage.getItem("misFavoritos") === null ){
 		var misFavoritos = new Array();		
@@ -17,12 +19,29 @@ $(window).scroll(function(){
 	} else {
 		$('.subir').fadeOut();
 	}
-	}); 
+	if($('.pag_entrada').css('display') != 'none' ) {
+		var hT = $('.ver-comentarios').offset().top,
+       	hH = $('.ver-comentarios').outerHeight(),
+       	wH = $(window).height(),
+       	wS = $(this).scrollTop();
+    	console.log((hT-wH) , wS);
+   		if (wS > (hT+hH-wH)){
+    		var EntradaId = $('.favorito').data("id");   
+			//$('.ver-comentarios').fadeIn(3500);
+			//$('.ver-comentarios').show();
+			console.log($('.ver-comentarios').css('display'));
+			if ($('.ver-comentarios').css('display') == 'none') {
+				cargarComentarios.cargar(EntradaId);	
+			}
+			
+   		}	
+	}
+}); 
 
-	$('.subir').click(function(){
-		$("html, body").animate({ scrollTop: 0 }, 600);
-		return false;
-	});
+$('.subir').click(function(){
+	$("html, body").animate({ scrollTop: 0 }, 600);
+	return false;
+});
 
 /* PARA MOSTRAR EL MODAL DE LOGIN */
 $('#Acceso, #Acceso_sidenav').on('click', function(){
@@ -39,8 +58,10 @@ $('#Registro, #Registro_sidenav').on('click', function(){
 /* PARA MOSTRAR EL INICIO Y EL LISTADO DE ENTRADAS */
 $('#accesoInicio, #accesoInicio_sidenav').on('click', function(){
 	$('.pag_entrada').html("");
+	$('.pag_entrada').hide();
+	$('.inicio').show();
 	$('.button-collapse').sideNav('hide');
-	cargarEntradas.cargar(" ");
+	cargarEntradas.cargar("all");
 });
 
 /* MOSTRAMOS LISTADO DE ENTRADAS SEGUN CATEGORIA SELECCIONADA */
@@ -92,12 +113,16 @@ $(".inicio").on("click", ".card-title", function(){
     var self = this;
     var EntradaId = $(this).data("id");   
     $('.inicio').html("");
+    $('.inicio').hide();
+    $('.pag_entrada').show();
     cargarEntrada.cargar(EntradaId);
  });
 
-
-
-
+// function cargaComentarios(){
+// 	var EntradaId = $('.favorito').data("id");   
+// 	$('.ver-comentarios').fadeIn(3500);
+// 	cargarComentarios.cargar(EntradaId);
+// };
 
 
 

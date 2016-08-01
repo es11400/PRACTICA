@@ -50,7 +50,7 @@ module.exports = {
 				html += '	<div class="card-content ">';
 				html += response.texto_largo;
 				html += '	</div>';
-				html += '	<div class="comentarios card-action">';
+				html += '	<div class="ver-comentarios card-action">';
 				html += '		Comentarios';
 				html += '	</div>';
 				html += '</div>';
