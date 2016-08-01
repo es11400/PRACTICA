@@ -34,7 +34,7 @@ module.exports = {
 			    $('.inicio').append(html);
 		    	$('.listado-entradas').html(''); // vaciamos la lista
 			    for (var i in response) {
-			    	console.log(i);
+			    
 			        var entrada = response[i];
 			        var posicion = 0;
 

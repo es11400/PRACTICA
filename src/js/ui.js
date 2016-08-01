@@ -19,21 +19,17 @@ $(window).scroll(function(){
 	} else {
 		$('.subir').fadeOut();
 	}
-	if($('.pag_entrada').css('display') != 'none' ) {
+	
+	if($('.ver-comentarios').css('display') === 'none' ) {
 		var hT = $('.ver-comentarios').offset().top,
        	hH = $('.ver-comentarios').outerHeight(),
        	wH = $(window).height(),
        	wS = $(this).scrollTop();
-    	console.log((hT-wH) , wS);
+    	//console.log((hT-wH) , wS);
    		if (wS > (hT+hH-wH)){
     		var EntradaId = $('.favorito').data("id");   
-			//$('.ver-comentarios').fadeIn(3500);
-			//$('.ver-comentarios').show();
-			console.log($('.ver-comentarios').css('display'));
-			if ($('.ver-comentarios').css('display') == 'none') {
-				cargarComentarios.cargar(EntradaId);	
-			}
-			
+			$('.ver-comentarios').fadeIn(3500);
+			cargarComentarios.cargar(EntradaId);	
    		}	
 	}
 }); 
@@ -90,7 +86,7 @@ $(".inicio, .pag_entrada").on("click", ".favorito", function(){
 
     if (typeof(Storage) !== "undefined") {
     	if (siFavorito) { 
-    		console.log("Favorito -> " + EntradaId)
+    		//console.log("Favorito -> " + EntradaId)
    			misFavoritos.push(EntradaId);
    			localStorage.setItem("misFavoritos", JSON.stringify(misFavoritos));
     	} else {
@@ -118,11 +114,6 @@ $(".inicio").on("click", ".card-title", function(){
     cargarEntrada.cargar(EntradaId);
  });
 
-// function cargaComentarios(){
-// 	var EntradaId = $('.favorito').data("id");   
-// 	$('.ver-comentarios').fadeIn(3500);
-// 	cargarComentarios.cargar(EntradaId);
-// };
 
 
 
