@@ -8,7 +8,7 @@ module.exports = {
 
     cargar: function(entradaId){
     	apiClient.listComentarios(entradaId,function(response) {
-    		console.log(response);
+    		
     		$('.ver-comentarios').html("");
     		var html  = '<div class="col s12 m12 l12">';
     			html += '	<h2>Comentarios</h2><a id="anadirComentario" href="#">Añadir comentario</a>';

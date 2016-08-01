@@ -82,13 +82,14 @@ module.exports = {
             complete: completeCallBack
         });
     },
-    entrada: function(entradaId,successCallback, errorCallback) {
+    entrada: function(entradaId,successCallback, errorCallback, completeCallBack) {
 
         $.ajax({
             url: "/api/entradas/" + entradaId,
             method: "get",
             success: successCallback,
-            error: errorCallback
+            error: errorCallback,
+            complete: completeCallBack
         });
     }
 

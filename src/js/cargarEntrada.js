@@ -1,5 +1,6 @@
 var $ = require('jquery');
 var apiClient = require('./api-client');
+//var cargarComentarios = require('./cargarComentarios');
 
 
 module.exports = {
@@ -57,11 +58,13 @@ module.exports = {
 				html += '	<div class="card-content ">';
 				html += response.texto_largo;
 				html += '	</div>';
-				html += '	<div class="progress">';
-      			html += '		<div class="indeterminate"></div>';
-  				html += '	</div>';
-				html += '	<div class="ver-comentarios card-action">';
+				html += '	<div class="mostrarcomentarios">';
+				html += '		<div class="progress">';
+      			html += '			<div class="indeterminate"></div>';
+  				html += '		</div>';
+				html += '		<div class="ver-comentarios card-action">';
 				//html += '		Comentarios';
+				html += '		</div>';
 				html += '	</div>';
 				html += '</div>';
     			
@@ -72,6 +75,15 @@ module.exports = {
 
     	}, function(response){
 	        console.error("ERROR", response);
+		}, function(response){
+			console.log("Completo");
+			// var options = [ {selector: '.ver-comentarios', offset: 800, callback: function(el) { 
+			// console.log("fire");
+			// var EntradaId = $('.favorito').data("id");   
+			// $('.ver-comentarios').fadeIn(3500);
+			// cargarComentarios.cargar(EntradaId); } } ]; 
+
+			// Materialize.scrollFire(options); 
 		});
 
     }

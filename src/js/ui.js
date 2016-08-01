@@ -21,11 +21,12 @@ $(window).scroll(function(){
 	}
 	
 	if($('.ver-comentarios').css('display') === 'none' ) {
-		var hT = $('.ver-comentarios').offset().top,
-       	hH = $('.ver-comentarios').outerHeight(),
-       	wH = $(window).height(),
-       	wS = $(this).scrollTop();
-    	//console.log((hT-wH) , wS);
+		
+		var hT = $('.progress').offset().top,
+		hH = $('.progress').outerHeight(),
+		wH = $(window).height(),
+		wS = $(this).scrollTop();
+		//console.log((hT-wH) , wS);
    		if (wS > (hT+hH-wH)){
     		var EntradaId = $('.favorito').data("id");   
 			$('.ver-comentarios').fadeIn(3500);
