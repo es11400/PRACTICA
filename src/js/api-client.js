@@ -37,8 +37,8 @@ module.exports = {
         } else if (categoria == "Videos") {
             url = "/api/entradas/?_order=-categoria";
         }
-        //console.log("URL" + url);
-        //console.log("Categoria : " + categoria);
+        console.log("URL" + url);
+        console.log("Categoria : " + categoria);
         $.ajax({
             url: url,
             method: "get",

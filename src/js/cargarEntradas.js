@@ -6,6 +6,29 @@ module.exports = {
 
     cargar: function(cat){
     	apiClient.list(cat,function(response) {
+    		var html  = '<section>';
+			    html += ' <div class="container">';
+			    html += '    <h1>Cuentame</h1>';
+			    html += '    <h5 class="flow-text">¿Tienes una historia? Pues cuéntanosla.</h5>';
+			    html += '    <h5 class="flow-text">¿No tienes nada que contar? Pues valora la de los demás.</h5>';
+			    html += ' </div>';
+			    html += '</section>';
+			    html += '<section class="container listado-entradas"></section>';
+			    html += '<section>';
+			    html += ' <div class="container center-align">';
+			    html += '    <ul class="pagination">';
+			    html += '        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>';
+			    html += '        <li class="active"><a href="#!">1</a></li>';
+			    html += '        <li class="waves-effect"><a href="#!">2</a></li>';
+			    html += '        <li class="waves-effect"><a href="#!">3</a></li>';
+			    html += '        <li class="waves-effect"><a href="#!">4</a></li>';
+			    html += '        <li class="waves-effect"><a href="#!">5</a></li>';
+			    html += '        <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>';
+			    html += '    </ul>';
+			    html += ' </div>';
+			    html += '</section>';
+			    
+			    $('.inicio').append(html);
 		    $('.listado-entradas').html(''); // vaciamos la lista
 		    for (var i in response) {
 		        var entrada = response[i];
@@ -43,10 +66,10 @@ module.exports = {
 		        }
 		        
 		        
-		        var html =  '<article class="entrada" data-id="' + id + '"><div class="card hoverable"><div class="card-image waves-effect waves-block waves-light">';
+		        var html =  '<article class="entrada"><div class="card hoverable"><div class="card-image waves-effect waves-block waves-light">';
 		            html += imagen_video;
 		            html += '</div><div class="card-content">';
-		            html += '<span class="card-title activator grey-text text-darken-4">' + titulo +'<i class="material-icons right">more_vert</i></span>';
+		            html += '<span class="card-title activator grey-text text-darken-4" data-id="' + id + '">' + titulo +'<i class="material-icons right">more_vert</i></span>';
 		            html += '<p class="justify-align">' + texto_corto + '</p></div>';
 		            //html += '<div class="card-reveal"><span class="card-title grey-text text-darken-4">' + titulo + '<i class="material-icons right">close</i></span></div>';
 		            html += '<div class="card-action"><div class="row"><div class="col s12 m12 l12 left-align"><div class="chip">';

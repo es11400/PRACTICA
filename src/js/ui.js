@@ -25,20 +25,31 @@ $(window).scroll(function(){
 
 /* PARA MOSTRAR EL MODAL DE LOGIN */
 $('#Acceso, #Acceso_sidenav').on('click', function(){
+	$('.button-collapse').sideNav('hide');
 	$('#modalAcceso').openModal();	
 });
 
 /* PARA MOSTRAR EL MODAL DEL REGISTRO */
 $('#Registro, #Registro_sidenav').on('click', function(){
+	$('.button-collapse').sideNav('hide');
 	$('#modalRegistro').openModal();	
+});
+
+/* PARA MOSTRAR EL INICIO Y EL LISTADO DE ENTRADAS */
+$('#accesoInicio, #accesoInicio_sidenav').on('click', function(){
+	$('.pag_entrada').html("");
+	$('.button-collapse').sideNav('hide');
+	cargarEntradas.cargar(" ");
 });
 
 /* MOSTRAMOS LISTADO DE ENTRADAS SEGUN CATEGORIA SELECCIONADA */
 $('#categoria_fotos, #categoria_fotos_sidenav').on('click', function(){
+	$('.button-collapse').sideNav('hide');
 	cargarEntradas.cargar("Fotos");
 });
 
 $('#categoria_videos, #categoria_videos_sidenav').on('click', function(){
+	$('.button-collapse').sideNav('hide');
 	cargarEntradas.cargar("Videos");
 });
 /* MARCAMOS/DESMARCAMOS COMO FAVORITOS Y LO ALMACENAMOS O QUITAMOS EN LA LOCALSTORAGE */
@@ -76,7 +87,11 @@ $(".inicio").on("click", ".favorito", function(){
 
 });
 
-
+$(".inicio").on("click", ".card-title", function(){
+    var self = this;
+    var EntradaId = $(this).data("id");   
+    $('.inicio').html("");
+ });
 
 
 
