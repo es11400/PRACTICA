@@ -68,7 +68,7 @@ module.exports = {
             error: errorCallback
         });
     },
-    listComentarios: function(entrada, successCallback,errorCallback){
+    listComentarios: function(entrada, successCallback,errorCallback, beforeSendCallBAck, completeCallBack){
         var url = "/api/comentarios/?entrada=" + entrada;
         
         //console.log("URL" + url);
@@ -77,7 +77,9 @@ module.exports = {
             url: url,
             method: "get",
             success: successCallback,
-            error: errorCallback
+            error: errorCallback,
+            beforeSend: beforeSendCallBAck,
+            complete: completeCallBack
         });
     },
     entrada: function(entradaId,successCallback, errorCallback) {

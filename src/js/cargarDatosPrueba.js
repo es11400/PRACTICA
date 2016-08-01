@@ -39,6 +39,7 @@ module.exports = {
 			    nFavoritos 		: "0",
 			    categoria 		: "Videos",
 			    imagen_video 	: "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
+			    //imagen_video	: "big_buck_bunny.mp4"
 		    };
 
 		    apiClient.save(entrada, function(response) {
@@ -119,6 +120,7 @@ module.exports = {
 			    nFavoritos 		: '0',
 			    categoria 		: 'Videos',
 			    imagen_video 	: 'http://techslides.com/demos/sample-videos/small.mp4'
+			    //imagen_video 	: 'big_buck_bunny.mp4'
 		    };
 
 		    apiClient.save(entrada, function(response) {

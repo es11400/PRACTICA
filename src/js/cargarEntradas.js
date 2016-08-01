@@ -61,7 +61,10 @@ module.exports = {
 			        
 			        if (typeof(Storage) !== "undefined") {
 			        	misFavoritos = JSON.parse(localStorage.getItem("misFavoritos"));
-			        	posicion = misFavoritos.indexOf(id);
+	        			posicion = $.inArray(id, misFavoritos); // Utilizamos JQuery por que .indexOf no es compatible con IE
+	    				//posicion = misFavoritos.indexOf(id);
+	    				
+
 	    				if (posicion == -1) {
 	    					var favorito = '<i data-id="' + id + '" class="material-icons md-48 favorito no-fav white">thumb_up</i>';
 	    				} else {
