@@ -37,10 +37,19 @@ module.exports = {
         } else if (categoria == "Videos") {
             url = "/api/entradas/?_order=-categoria";
         }
-        console.log("URL" + url);
-        console.log("Categoria : " + categoria);
+        //console.log("URL" + url);
+        //console.log("Categoria : " + categoria);
         $.ajax({
             url: url,
+            method: "get",
+            success: successCallback,
+            error: errorCallback
+        });
+    },
+    entrada: function(entradaId,successCallback, errorCallback) {
+
+        $.ajax({
+            url: "/api/entradas/" + entradaId,
             method: "get",
             success: successCallback,
             error: errorCallback

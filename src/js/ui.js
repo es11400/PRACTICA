@@ -1,4 +1,5 @@
 var cargarEntradas = require('./cargarEntradas');
+var cargarEntrada = require('./cargarEntrada');
 if (typeof(Storage) !== "undefined") {
 	if(localStorage.getItem("misFavoritos") === null ){
 		var misFavoritos = new Array();		
@@ -53,7 +54,7 @@ $('#categoria_videos, #categoria_videos_sidenav').on('click', function(){
 	cargarEntradas.cargar("Videos");
 });
 /* MARCAMOS/DESMARCAMOS COMO FAVORITOS Y LO ALMACENAMOS O QUITAMOS EN LA LOCALSTORAGE */
-$(".inicio").on("click", ".favorito", function(){
+$(".inicio, .pag_entrada").on("click", ".favorito", function(){
     var self = this;
     var EntradaId = $(this).data("id");   
     var posicion = 0;
@@ -91,6 +92,7 @@ $(".inicio").on("click", ".card-title", function(){
     var self = this;
     var EntradaId = $(this).data("id");   
     $('.inicio').html("");
+    cargarEntrada.cargar(EntradaId);
  });
 
 
