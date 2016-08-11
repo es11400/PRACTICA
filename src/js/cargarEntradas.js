@@ -12,7 +12,7 @@ function calcularTiempoDosFechas(date1, date2){
 	var Meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
     start_actual_time = new Date(date1);
     end_actual_time = new Date(date2);
-    //console.log("Date1 -> " + date1 + "(" + start_actual_time + ") - Date2 -> " + date2 + "(" + end_actual_time + ")");
+    console.log("Date1 -> " + date1 + "(" + start_actual_time + ") - Date2 -> " + date2 + "(" + end_actual_time + ")");
     var diff = end_actual_time - start_actual_time;
     
     var diffSeconds = diff/1000;
@@ -23,11 +23,11 @@ function calcularTiempoDosFechas(date1, date2){
     //var formatted = ((HH < 10)?("0" + HH):HH) + ":" + ((MM < 10)?("0" + MM):MM)
     //console.log(formatted);
     if (diffSeconds < 60 ) { // Menos de un minuto mostramos X segundos
-    	Resultado = diffSeconds + " Segundos.";
+    	Resultado = Math.round(diffSeconds) + " Segundo/s.";
     } else if(diffSeconds < 3600 ) { // Menos de una hora mostramos X minutos
-    	Resultado = Math.round(MM) + " Minutos.";
+    	Resultado = Math.round(MM) + " Minuto/s.";
     } else if (diffSeconds < 86400 ) { // Menos de un día mostramos X horas 
-		Resultado = Math.round(HH) + " Horas.";
+		Resultado = Math.round(HH) + " Hora/s.";
     } else if (diffSeconds < 604800 ) { // Menos de una semana mostramos el día publicado
     	Resultado = dias[start_actual_time.getDay()];
     } else {
