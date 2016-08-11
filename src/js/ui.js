@@ -2,6 +2,7 @@ var cargarEntradas = require('./cargarEntradas');
 var cargarEntrada = require('./cargarEntrada');
 var cargarComentarios = require('./cargarComentarios');
 var materialize = require('./materialize/bin/materialize');
+
 if (typeof(Storage) !== "undefined") {
 	if(localStorage.getItem("misFavoritos") === null ){
 		var misFavoritos = new Array();		
@@ -41,7 +42,7 @@ $('.subir').click(function(){
 });
 
 /* PARA MOSTRAR EL MODAL DE LOGIN */
-$('#Acceso, #Acceso_sidenav').on('click', function(){
+$('#Acceso, #Acceso_sidenav, #Acceso_sidenav3').on('click', function(){
 	$('.button-collapse').sideNav('hide');
 	$('#modalAcceso').openModal();	
 });

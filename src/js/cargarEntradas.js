@@ -1,8 +1,42 @@
 var $ = require('jquery');
-var timeago = require('timeago');
 var apiClient = require('./api-client');
 
-$('time.timeago').timeago();
+/**
+ * Función para calcular el tiempo entre dos fechas.
+ * date1 = "01/17/2012 11:20";
+ * date2 = "01/18/2012 12:25";
+ * calcularTiempoDosFechas(date1, date2);
+ */
+function calcularTiempoDosFechas(date1, date2){
+	var dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+	var Meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    start_actual_time = new Date(date1);
+    end_actual_time = new Date(date2);
+    //console.log("Date1 -> " + date1 + "(" + start_actual_time + ") - Date2 -> " + date2 + "(" + end_actual_time + ")");
+    var diff = end_actual_time - start_actual_time;
+    
+    var diffSeconds = diff/1000;
+    var HH = Math.floor(diffSeconds/3600);
+    var MM = Math.floor(diffSeconds%3600)/60;
+    //console.log("Horas -> " + HH + " | Minutos -> " + MM + " | Segundos -> " + diffSeconds);
+    var Resultado = "";
+    //var formatted = ((HH < 10)?("0" + HH):HH) + ":" + ((MM < 10)?("0" + MM):MM)
+    //console.log(formatted);
+    if (diffSeconds < 60 ) { // Menos de un minuto mostramos X segundos
+    	Resultado = diffSeconds + " Segundos.";
+    } else if(diffSeconds < 3600 ) { // Menos de una hora mostramos X minutos
+    	Resultado = Math.round(MM) + " Minutos.";
+    } else if (diffSeconds < 86400 ) { // Menos de un día mostramos X horas 
+		Resultado = Math.round(HH) + " Horas.";
+    } else if (diffSeconds < 604800 ) { // Menos de una semana mostramos el día publicado
+    	Resultado = dias[start_actual_time.getDay()];
+    } else {
+    	Resultado = dias[start_actual_time.getDay()] + " " + start_actual_time.getDate() + " de " + Meses[start_actual_time.getMonth()] + " de " + start_actual_time.getFullYear() + " a las " + start_actual_time.getHours() + ":" + start_actual_time.getMinutes() + ":" +start_actual_time.getSeconds();
+    }
+
+    return Resultado;
+}
+
 
 module.exports = {
 
@@ -71,6 +105,8 @@ module.exports = {
 	    					var favorito = '<i data-id="' + id + '" class="material-icons md-48 favorito white">thumb_up</i>';
 	    				}
 			        }
+
+
 			        
 			        
 			        var html =  '<article class="entrada"><div class="card hoverable"><div class="card-image waves-effect waves-block waves-light">';
@@ -81,7 +117,7 @@ module.exports = {
 			            //html += '<div class="card-reveal"><span class="card-title grey-text text-darken-4">' + titulo + '<i class="material-icons right">close</i></span></div>';
 			            html += '<div class="card-action"><div class="row"><div class="col s12 m12 l12 left-align"><div class="chip">';
 			            html += '<img src="dist/img/' + imagen_autor + '" alt="Contact Person">' + autor + '</div>';
-			            html += '<time class="timeago" datetime="' + fecha + '"></time>';
+			            html += '<p class="fecha-articulo">' + calcularTiempoDosFechas(fecha, new Date()) + '</p>';
 			            //html += '<time class="timeago" datetime="2011-12-17T09:24:17Z" title="December 17, 2011">about 1 day ago</time>';
 			            html += '</div></div><div class="row"><div class="col s6 m6 l6 right-align">';
 			            html += '<div class="chip comentarios">' + nComentarios + '</div></div>';

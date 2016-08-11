@@ -58,17 +58,21 @@ module.exports = {
 				html += '	<div class="card-content ">';
 				html += response.texto_largo;
 				html += '	</div>';
-				html += '	<div class="mostrarcomentarios">';
 				html += '		<div class="progress">';
       			html += '			<div class="indeterminate"></div>';
   				html += '		</div>';
 				html += '		<div class="ver-comentarios card-action">';
 				//html += '		Comentarios';
 				html += '		</div>';
+				html += '</div>';
+    			html += '</section>';
+
+				html += '<div id="modalAnadirComentario" class="modal bottom-sheet">';
+				html += '	<div class="modal-content">';
+				html += '		<h4>Añadir comentario</h4>';
+				html += '		';
 				html += '	</div>';
 				html += '</div>';
-    			
-    			html += '</section>'
 
 
     		$('.pag_entrada').append(html);
@@ -77,13 +81,6 @@ module.exports = {
 	        console.error("ERROR", response);
 		}, function(response){
 			console.log("Completo");
-			// var options = [ {selector: '.ver-comentarios', offset: 800, callback: function(el) { 
-			// console.log("fire");
-			// var EntradaId = $('.favorito').data("id");   
-			// $('.ver-comentarios').fadeIn(3500);
-			// cargarComentarios.cargar(EntradaId); } } ]; 
-
-			// Materialize.scrollFire(options); 
 		});
 
     }

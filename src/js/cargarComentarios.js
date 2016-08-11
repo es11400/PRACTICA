@@ -1,8 +1,8 @@
 var $ = require('jquery');
-var timeago = require('timeago');
+
 var apiClient = require('./api-client');
 
-$('time.timeago').timeago();
+
 
 module.exports = {
 
@@ -26,7 +26,8 @@ module.exports = {
 		        	html += '	</div>';
 		        	html += '	<div class="col s12 m8 l8">';
 		        	html += '		<p>' + comentario.nombre + ' ' + comentario.apellidos + '</p>';
-		        	html += '		<p>' + comentario.email + ' ' + comentario.fecha + '</p>';
+		        	html += '		<p>' + comentario.email + '</p>';
+		        	html += '		<p>' + comentario.fecha + '</p>';
 		        	html += '	</div>';
 		        	html += '</div>';
 		        	html += '<div class="divider"></div>';
@@ -58,3 +59,9 @@ module.exports = {
 		});
     }
  }
+
+ /* PARA MOSTRAR EL MODAL DE AÑADIR COMENTARIOS */
+$('#anadirComentario').on('click', function(){
+	console.log("modal");
+	$('#modalAnadirComentario').openModal();	
+});
