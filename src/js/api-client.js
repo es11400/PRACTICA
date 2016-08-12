@@ -69,10 +69,8 @@ module.exports = {
         });
     },
     listComentarios: function(entrada, successCallback,errorCallback, beforeSendCallBAck, completeCallBack){
-        var url = "/api/comentarios/?entrada=" + entrada;
+        var url = "/api/comentarios/?entrada=" + entrada + "&_order=-fecha";
         
-        //console.log("URL" + url);
-        //console.log("Categoria : " + categoria);
         $.ajax({
             url: url,
             method: "get",
