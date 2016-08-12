@@ -27,7 +27,6 @@ $(window).scroll(function(){
 		hH = $('.progress').outerHeight(),
 		wH = $(window).height(),
 		wS = $(this).scrollTop();
-		//console.log((hT-wH) , wS);
    		if (wS > (hT+hH-wH)){
     		var EntradaId = $('.favorito').data("id");   
 			$('.ver-comentarios').fadeIn(3500);
@@ -116,7 +115,7 @@ $(".inicio").on("click", ".card-title", function(){
     cargarEntrada.cargar(EntradaId);
  });
 
-
-
-
+$(".pag_entrada").on("click", "#anadirComentario", function(){
+    $('#modalAnadirComentario').openModal();  
+});
 

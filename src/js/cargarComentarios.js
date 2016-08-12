@@ -1,5 +1,5 @@
 var $ = require('jquery');
-
+var utils = require('./utils');
 var apiClient = require('./api-client');
 
 
@@ -27,7 +27,7 @@ module.exports = {
 		        	html += '	<div class="col s12 m8 l8">';
 		        	html += '		<p>' + comentario.nombre + ' ' + comentario.apellidos + '</p>';
 		        	html += '		<p>' + comentario.email + '</p>';
-		        	html += '		<p>' + comentario.fecha + '</p>';
+		        	html += '		<p>' + utils.calcularTiempoDosFechas(comentario.fecha, new Date()) + '</p>';
 		        	html += '	</div>';
 		        	html += '</div>';
 		        	html += '<div class="divider"></div>';
@@ -46,7 +46,7 @@ module.exports = {
     	}, function(response){
     		var html  = '<div class="row">';
 	        	html += '	<div class="col s12 m8 l8">';
-	        	html += '		<h6>Ha ocurrido un error con el servidor, intentelo mas tarde</h6>';
+	        	html += '		<h6>Ha ocurrido un error con el servidor, intentelo más tarde</h6>';
 	        	html += '	</div>';
 	        	html += '</div>';
 		        	
@@ -59,9 +59,3 @@ module.exports = {
 		});
     }
  }
-
- /* PARA MOSTRAR EL MODAL DE AÑADIR COMENTARIOS */
-$('#anadirComentario').on('click', function(){
-	console.log("modal");
-	$('#modalAnadirComentario').openModal();	
-});
