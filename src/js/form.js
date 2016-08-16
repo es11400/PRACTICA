@@ -2,7 +2,7 @@ var $ = require('jquery');
 var apiClient = require('./api-client');
 var materialize = require('./materialize/bin/materialize');
 var cargarComentarios = require('./cargarComentarios');
-
+var numPalabras = 0;
 function setLoading(inputs){ // antes de enviar la petición
     for (var i = 0; i < inputs.length; i++) {
     	$(inputs[i]).attr("disabled", true);	
@@ -14,6 +14,21 @@ function unSetLoading(inputs){
     	$(inputs[i]).attr("disabled", false);	
     }
 }
+
+$(".pag_entrada").on("keypress", "#input_mensaje", function() {
+
+	var formcontent = this.value;
+        formcontent = formcontent.trim();
+        formcontent = formcontent.split(" ");
+        numPalabras = formcontent.length;
+
+   if (numPalabras > 149) {
+       return false;
+   } else {
+
+       $('#cuantosCaracteres').html((149 - numPalabras) + " Palabras");
+   }
+});
 
 $(".pag_entrada").on("click", "#enviar", function(){
 	var EntradaId = $('.favorito').data("id");     

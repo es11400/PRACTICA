@@ -90,6 +90,7 @@ module.exports = {
         		html += '					<div class="input-field col s12">';
 	          	html += '						<textarea id="input_mensaje" length="120" class="materialize-textarea"></textarea>';
 	          	html += '						<label for="input_mensaje">Mensaje</label>';
+	          	html += '						<p id="cuantosCaracteres"></p>';
         		html += '					</div>';
 	      		html += '				</div>';
 	      		html += '				<button id="enviar" class="btn waves-effect blue">Enviar';
