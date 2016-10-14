@@ -2,6 +2,7 @@ var cargarEntradas = require('./cargarEntradas');
 var cargarEntrada = require('./cargarEntrada');
 var cargarComentarios = require('./cargarComentarios');
 var materialize = require('./materialize/bin/materialize');
+
 if (typeof(Storage) !== "undefined") {
 	if(localStorage.getItem("misFavoritos") === null ){
 		var misFavoritos = new Array();		
@@ -26,7 +27,6 @@ $(window).scroll(function(){
 		hH = $('.progress').outerHeight(),
 		wH = $(window).height(),
 		wS = $(this).scrollTop();
-		//console.log((hT-wH) , wS);
    		if (wS > (hT+hH-wH)){
     		var EntradaId = $('.favorito').data("id");   
 			$('.ver-comentarios').fadeIn(3500);
@@ -41,7 +41,7 @@ $('.subir').click(function(){
 });
 
 /* PARA MOSTRAR EL MODAL DE LOGIN */
-$('#Acceso, #Acceso_sidenav').on('click', function(){
+$('#Acceso, #Acceso_sidenav, #Acceso_sidenav3').on('click', function(){
 	$('.button-collapse').sideNav('hide');
 	$('#modalAcceso').openModal();	
 });
@@ -115,7 +115,7 @@ $(".inicio").on("click", ".card-title", function(){
     cargarEntrada.cargar(EntradaId);
  });
 
-
-
-
+$(".pag_entrada").on("click", "#anadirComentario", function(){
+    $('#modalAnadirComentario').openModal();  
+});
 

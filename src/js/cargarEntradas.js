@@ -1,8 +1,6 @@
 var $ = require('jquery');
-var timeago = require('timeago');
+var utils = require('./utils');
 var apiClient = require('./api-client');
-
-$('time.timeago').timeago();
 
 module.exports = {
 
@@ -62,15 +60,15 @@ module.exports = {
 			        if (typeof(Storage) !== "undefined") {
 			        	misFavoritos = JSON.parse(localStorage.getItem("misFavoritos"));
 	        			posicion = $.inArray(id, misFavoritos); // Utilizamos JQuery por que .indexOf no es compatible con IE
-	    				//posicion = misFavoritos.indexOf(id);
-	    				
-
+	    														//posicion = misFavoritos.indexOf(id);
 	    				if (posicion == -1) {
 	    					var favorito = '<i data-id="' + id + '" class="material-icons md-48 favorito no-fav white">thumb_up</i>';
 	    				} else {
 	    					var favorito = '<i data-id="' + id + '" class="material-icons md-48 favorito white">thumb_up</i>';
 	    				}
 			        }
+
+
 			        
 			        
 			        var html =  '<article class="entrada"><div class="card hoverable"><div class="card-image waves-effect waves-block waves-light">';
@@ -81,7 +79,7 @@ module.exports = {
 			            //html += '<div class="card-reveal"><span class="card-title grey-text text-darken-4">' + titulo + '<i class="material-icons right">close</i></span></div>';
 			            html += '<div class="card-action"><div class="row"><div class="col s12 m12 l12 left-align"><div class="chip">';
 			            html += '<img src="dist/img/' + imagen_autor + '" alt="Contact Person">' + autor + '</div>';
-			            html += '<time class="timeago" datetime="' + fecha + '"></time>';
+			            html += '<p class="fecha-articulo">' + utils.calcularTiempoDosFechas(fecha, new Date()) + '</p>';
 			            //html += '<time class="timeago" datetime="2011-12-17T09:24:17Z" title="December 17, 2011">about 1 day ago</time>';
 			            html += '</div></div><div class="row"><div class="col s6 m6 l6 right-align">';
 			            html += '<div class="chip comentarios">' + nComentarios + '</div></div>';
