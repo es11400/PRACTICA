@@ -39,7 +39,7 @@ module.exports = {
 				html += '							<div class="chip">';
 	            html += '								<img src="dist/img/' + response.imagen_autor + '" alt="Contact Person">' + response.autor;
 	            html += '							</div>';
-	            html += '							<p class="fecha-articulo">' + response.fecha + '</p>';
+ 	           html += '							<p class="fecha-articulo">' + response.fecha + '</p>';
 	            html += '						</div>';
 	            html += '					</div>';
 	            html += '					<div class="row">';
