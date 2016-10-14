@@ -20,6 +20,8 @@ module.exports = {
 			    
 			    var comentario = response[i];
 		        var posicion = 0;
+                var fechaAMostrar = utils.calcularTiempoDosFechas(comentario.fecha, new Date());    
+                    
 		        var html  = '<div class="row">';
 		        	html += '	<div class="col s12 m8 l8">';
 		        	html += '		<p>' + comentario.texto + '</p>';
@@ -27,7 +29,7 @@ module.exports = {
 		        	html += '	<div class="col s12 m8 l8">';
 		        	html += '		<p>' + comentario.nombre + ' ' + comentario.apellidos + '</p>';
 		        	html += '		<p>' + comentario.email + '</p>';
-		        	html += '		<p>' + utils.calcularTiempoDosFechas(comentario.fecha, new Date()) + '</p>';
+		        	html += '		<p class="fecha-articulo"><time datatime="' + comentario.fecha + '">' + fechaAMostrar + '</time></p>';
 		        	html += '	</div>';
 		        	html += '</div>';
 		        	html += '<div class="divider"></div>';

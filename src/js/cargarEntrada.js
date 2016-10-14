@@ -29,6 +29,8 @@ module.exports = {
 	            imagen_video = '<img class="activator" src="dist/img/noFoto.png">';
 	        }
 
+            var fechaAMostrar = utils.calcularTiempoDosFechas(response.fecha, new Date());
+            
     		var html =  '<section class="container">';
 				html += '		<h2 class="header">' + response.titulo + '</h2>';
 				html += '		<div class="card">';
@@ -42,11 +44,11 @@ module.exports = {
 				html += '							<div class="chip">';
 	            html += '								<img src="dist/img/' + response.imagen_autor + '" alt="Autor">' + response.autor;
 	            html += '							</div>';
-                html += '							<p class="fecha-articulo">' + response.fecha + '</p>';
+//                html += '							<p class="fecha-articulo">' + response.fecha + '</p>';
 	            html += '						</div>';
 	            html += '					</div>';
 	            html += '					<div class="row">';
-	            html += '						<p class="fecha-articulo">' + utils.calcularTiempoDosFechas(response.fecha, new Date()) + '</p>';
+	            html += '						<p class="fecha-articulo"><time datatime="' + response.fecha + '">' + fechaAMostrar + '</time></p>';
 	            html += '						<div class="col s6 m6 l6 right-align">';
 	            html += '							<div class="chip comentarios">' + response.nComentarios + '</div>';
 	            html += '						</div>';

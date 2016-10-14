@@ -69,7 +69,7 @@ module.exports = {
         });
     },
     listComentarios: function(entrada, successCallback,errorCallback, beforeSendCallBAck, completeCallBack){
-        var url = "/api/comentarios/?entrada=" + entrada + "&_order=-fecha";
+        var url = "/api/comentarios/?entrada=" + entrada + "&_order=fecha";
         
         $.ajax({
             url: url,
